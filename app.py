@@ -13,32 +13,6 @@ CORS(app)
 
 openai.api_key = os.getenv("API_KEY")
 
-
-# @app.route('/generate_response', methods=['POST'])
-# def generate_response():
-#     data = request.get_json()
-#     topic = data.get('topic')
-#     language = data.get('language')
-
-#     if not topic or not language:
-#         return jsonify({'error': 'Both topic and language are required.'}), 400
-
-#     response = openai.Completion.create(
-#         model="babbage-002",
-#         prompt=f"Write a minimum of 100 words on the topic of '{topic}' in {language} language:",
-#         max_tokens=200,
-#         stop=["\n", "Language:"],
-#         temperature=0.7
-#     )
-
-#     generated_text = response['choices'][0]['text'].strip()
-
-#     return jsonify({'generated_text': generated_text}), 200
-
-# if __name__ == '__main__':
-#     app.run(debug=True, port=8000)
-
-
 @app.route('/translate', methods=['POST'])
 def translate_italian_to_english():
     data = request.json
